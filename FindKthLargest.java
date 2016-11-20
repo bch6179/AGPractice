@@ -154,7 +154,7 @@ The easiest solution is to choose a random pivot, which yields almost certain li
 58     
 59     /*
 60         Swap the two nodes.
-61     */
+61     *
 62     public void swap(ArrayList<Integer> numbers, int n1, int n2) {
 63         int tmp = numbers.get(n1);
 64         numbers.set(n1, numbers.get(n2));
