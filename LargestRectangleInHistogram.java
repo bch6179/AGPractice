@@ -1,7 +1,5 @@
 Largest Rectangle in Histogram(直方图最大面积)
-2013-05-18 13:09 9595人阅读 评论(2) 收藏 举报
- 分类： 面试（10）  
-版权声明：本文为博主原创文章，未经博主允许不得转载。
+
 具体的题目描述为：
 Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
 
