@@ -35,7 +35,7 @@
 6         return a[a.length-1].length();
 7     }
 
-    public int lengthOfLastWord_Mybad(String s) {
+    public int lengthOfLastWord_MyMistake(String s) {
         // Write your code here
         int end = s.length() - 1;
 

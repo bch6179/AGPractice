@@ -33,7 +33,7 @@ public class Solution {
     //     int result = 0;
  
     //     while(cur < s.length()) {
-    //         char temp = s.charAt(cur); //bad Char
+    //         char temp = s.charAt(cur); //Mistake Char
     //         if (locTable.containsKey(temp) && locTable.get(temp) >= start) {
     //             //dup  //locTable.get(temp) willnull pointer exception
     //             result = Math.max(result, cur - start);
@@ -45,7 +45,7 @@ public class Solution {
     //             // }
     //              start = locTable.get(temp) + 1;
     //         }
-    //         //bad else, cur will not increase for aa  : else { //uni
+    //         //Mistake else, cur will not increase for aa  : else { //uni
     //          locTable.put(temp, cur);
     //           cur++;
              

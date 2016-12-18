@@ -91,4 +91,4 @@ public class BSTIterator {
     }
 }
 
-//bad throw exception for {-1} if exactly copying inorder traversal;
+//Mistake throw exception for {-1} if exactly copying inorder traversal;

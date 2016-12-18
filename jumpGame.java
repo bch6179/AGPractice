@@ -25,7 +25,7 @@ public class Solution {
         // return f[A.length - 1];
 
         //METHOD Greedy
-        //my bad
+        //my Mistake
         // if (A.size <= 0) {
         //     return false;
         // }

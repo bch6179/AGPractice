@@ -1,4 +1,105 @@
+  i+=1; j+=1
+            str[end], str[start] = str[start] , str[end]
+
+
+list.append(x)
+Add an item to the end of the list; equivalent to a[len(a):] = [x].
+
+list.extend(L)
+Extend the list by appending all the items in the given list; equivalent to a[len(a):] = L
+list.insert(i, x)
+index(x)
+list.sort(cmp=None, key=None, reverse=False)
+Sort the items of the list in place (the arguments can be used for sort customization, see sorted() for their explanation).
+append is a destructive operation (it modifies the list in place instead of of returning a new list). The idiomatic way to do the non-destructive equivalent of append would be
+> from collections import deque
+input of deque needs to be an interable, like init to deque([root])
+>>> queue = deque(["Eric", "John", "Michael"])
+>>> queue.append("Terry")           # Terry arrives
+>>> queue.append("Graham")          # Graham arrives
+>>> queue.popleft()                 # The first to arrive now leaves
+l = [1,2,3]
+print l + [4] # [1,2,3,4]
+Once a bounded length deque is full, when new items are added, a corresponding number of items are discarded from the opposite end.
+ is a convention in Python that methods that mutate sequences return None.
+
+Consider:
+
+>>> a_list = [3, 2, 1]
+>>> print a_list.sort()
+None
+>>> a_list
+[1, 2, 3]
+
+>>> a_dict = {}
+>>> print a_dict.__setitem__('a', 1)
+None
+>>> a_dict
+{'a': 1}
+
+>>> a_set = set()
+>>> print a_set.add(1)
+None
+>>> a_set
+set([1])
+ >> res=[]
+>>> list=[]
+>>> res.append(list.append(1))
+>>> res
+[None]
+
+>>> res.append(list+[1])
+>>> res
+[[1]]
+ 
+ try 
+             raise GetOutOfLoop
+        # other stuff
+except GetOutOfLoop:
+    pass
+
+
+''.join(p[:i]+'{}'+p[i:])
 Python
+http://www.diveintopython.net/power_of_introspection/optional_arguments.html
+Example 4.4. Valid Calls of info
+info(odbchelper)                    1
+info(odbchelper, 12)                2
+info(odbchelper, collapse=0)        3
+info(spacing=15, object=odbchelper) 4
+1	With only one argument, spacing gets its default value of 10 and collapse gets its default value of 1.
+2	With two arguments, collapse gets its default value of 1.
+3	Here you are naming the collapse argument explicitly and specifying its value. spacing still gets its default value of 10.
+4	Even required arguments (like object, which has no default value) can be named, and named arguments can appear in any order.
+
+
+# type annotations:
+# reduce(lambda X,X:X, [X,X..]) -> X
+
+#        SAME  <-- result
+#          ↗ ↖
+#      SAME   SAME]
+#        ↗ ↖
+#    SAME   SAME,
+#      ↗ ↖
+# [SAME,  SAME,
+
+>>> reduce(lambda a,b:[a,b], [1,2,3,4])
+[[[1, 2], 3], 4]
+
+list( filter((lambda x: x < 0), range(-5,5)))
+list(map((lambda x: x **2), items))
+http://www.bogotobogo.com/python/python_fncs_map_filter_reduce.php
+>>> items = [1, 2, 3, 4, 5]
+>>> 
+>>> def sqr(x): return x ** 2
+>>> import functools, operator
+>>> functools.reduce(operator.add, L)
+'Testing shows the presence, not the absence of bugs'
+>>> 
+>>> list(map(sqr, items))
+[1, 4, 9, 16, 25]
+>>> 
 >>> def reverse_numeric(x, y):
 ...     return y - x
 >>> sorted([5, 2, 4, 1, 3], cmp=reverse_numeric) 
@@ -18,3 +119,102 @@ Key functions need not depend directly on the objects being sorted. A key functi
 
 
 https://briangordon.github.io/2014/08/the-skyline-problem.html
+
+t = defaultdict(lambda:0) , ht = defaultdict(int) or ht = defaultdict(lambda:0, ht)
+
+9223372036854775807
+And you can calculate the minimum value with -sys.maxint - 1 as seen here. Of course Python just switches from plain to long integers once you exceed this value.
+In Python 3 this value has no significance at all for integers. (However, a closely related value is still available as sys.maxsize, in case you're actually looking for the machine's word size.)
+
+From <http://stackoverflow.com/questions/7604966/maximum-and-minimum-values-for-ints> 
+u're using a 32-bit Python runtime, sys.maxint will return 2^31 - 1, even though Python will jump to 64-bit seamlessly with the long datatype.
+
+From <http://stackoverflow.com/questions/7604966/maximum-and-minimum-values-for-ints> 
+
+
+In Python we could do as follows:
+# regular list comprehension
+>>> a = [(x, y) for x in range(1, 6) for y in range(3, 6)]
+[(1, 3), (1, 4), (1, 5), (2, 3), (2, 4), ...
+
+# parallel/zipped list comprehension
+>>> b = [x for x in zip(range(1, 6), range(3, 6))]
+[(1, 3), (2, 4), (3, 5)]
+
+-- regular list comprehension
+a = [(x,y) | x <- [1..5], y <- [3..5]]
+-- [(1,3),(1,4),(1,5),(2,3),(2,4) ...
+
+-- zipped list comprehension
+b = [(x,y) | (x,y) <- zip [1..5] [3..5]]
+-- [(1,3),(2,4),(3,5)]
+
+-- parallel list comprehension
+c = [(x,y) | x <- [1..5] | y <- [3..5]]
+-- [(1,3),(2,4),(3,5)]
+
+>>> s = {v for v in 'ABCDABCD' if v not in 'CB'}
+>>> print(s)
+{'A', 'D'}
+>>> type(s)
+<class 'set'>
+>>>
+
+>> import numpy
+>>> numpy.zeros((5, 5))
+array([[ 0.,  0.,  0.,  0.,  0.],
+       [ 0.,  0.,  0.,  0.,  0.],
+       [ 0.,  0.,  0.,  0.,  0.],
+       [ 0.,  0.,  0.,  0.,  0.],
+       [ 0.,  0.,  0.,  0.,  0.]])
+>>> numpy.matrix([[1, 2],[3, 4]])
+matrix([[1, 2],
+        [3, 4]])
+Other ways (with output removed for compactness):
+
+>>> numpy.matrix('1 2; 3 4')
+>>> numpy.arange(25).reshape((5, 5))
+>>> numpy.array(range(25)).reshape((5, 5))
+>>> numpy.ndarray((5, 5
+hen you can also do import collections; Matrix = collections.defaultdict(float), to substitute zeros for uninitialized elements. – osa Oct 22 '15 at 16:17
+  	 	
+Wouldn't accessing a dict for tuple(1,2) as key have a worst case complexity of O(n). As internally it would hash the tuples. Whereas using an 2D array would give O(1) time complexity to access index [1,2] access . So using dict for this should not be good choice. – Vatsal Nov 16 '15 at 12:25 
+  	 	
+@Vatsal wiki.python.org/moin/TimeComplexity says that the average case is O(1), but you're right about the worst case. Anyway, unless you're talking about A LOT OF ITEMS you wouldn't care about this difference. As a matter of fact, I would be worried more about memory than access time. – enobayram Nov 16 '15 at 13:38
+  	 	
+Also we always try to avoid use of dicts until the overall complexity of the algorithm is equal or greater than O(n^2). As an 'n' times O(n) accesses would give a O(n^2) complexity. – Vatsal Nov 16 '15 at 14:28
+  	 	
+@enobayram , Sorry but I do not agree. Asymptotic analysis will always give O(n^2) , if a worst case O(n) access is done 'n' times. Where as Amortized analysis can give a lesser bound. And there is a huge difference between amortized and average case ... please refer before making any assumptions and vague comments – Vatsal Nov 17 '15 at 4:10 
+  	 	
+I use this variant extensively for sparse matrices. Being able to Matrix = collections.defaultdict(lambda:0) is very useful in let's say, incrementing items in a matrix. – Josep Valls Dec 16 '15 at 15:51
+Matrix = {}
+Then you can do:
+
+Matrix[1,2] = 15
+print Matrix[1,2]
+
+atrix = []
+matrix.append([])
+matrix.append([])
+matrix[0].append(2)
+matrix[1].append(3)
+Now matrix[0][0] == 2 and matrix[1][0] == 3. You can also use the list comprehension syntax. This example uses it twice over to build a "two-dimensional list":
+numpy.zeros((x, y))
+e.g.
+
+>>> numpy.zeros((3, 5))
+    array([[ 0.,  0.,  0.,  0.,  0.],
+   [ 0.,  0.,  0.,  0.,  0.],
+   [ 0.,  0.,  0.,  0.,  0.]])
+or numpy.ones((x, y)) e.g.
+
+>>> np.ones((3, 5))
+array([[ 1.,  1.,  1.,  1.,  1.],
+   [ 1.,  1.,  1.,  1.,  1.],
+   [ 1.,  1.,  1.,  1.,  1.]])
+
+>> test = "abcba"
+>>> test == ''.join(reversed(test))
+
+def palindrome(n):
+    return n == n[::-1]

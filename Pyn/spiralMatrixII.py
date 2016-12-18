@@ -11,10 +11,10 @@ class Solution(object):
         res = [[0 for i in range(n)] for j in range(n)]
         direct,count = 0,0
         
-        while True:   # bad for i in range(n*n):
+        while True:   # Mistake for i in range(n*n):
             if direct == 0:
                 for j in range(left, right+1):
-                    count += 1; res[up][j] = count      # bad     count start from 1          
+                    count += 1; res[up][j] = count      # Mistake     count start from 1          
                 up += 1          
             elif direct == 1:
                 for j in range(up, down+1):

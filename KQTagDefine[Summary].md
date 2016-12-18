@@ -12,6 +12,6 @@ rotated search target
 NoLearn
 #CoverElseSolution:
 AntiAttempToDrawCripy:
-instead of badassumption before you judge or fix , solution should apply for other hidden cases: work at office with the team,  Equalbut-24H
+instead of Mistakeassumption before you judge or fix , solution should apply for other hidden cases: work at office with the team,  Equalbut-24H
 
 work till 5:00am -late ->at home -> lazy

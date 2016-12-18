@@ -352,7 +352,7 @@ It's method extraction time!
 
 But before that, I have to comment on your Player enum:
 
-str is a bad name, name would be better.
+str is a Mistake name, name would be better.
 Speaking of name, all enums have a name() method by default. You don't need your str variable, return name(); instead.
 Speaking of return name();, that's exactly what the default implementation of toString() already does for enums. Absolutely no need to override it.
 And therefore, we've reduced your Player enum to:
@@ -421,7 +421,7 @@ up vote
 down vote
 This is a classic case of where early-return makes sense....
 
-There are some schools of thought that suggest early return is a bad thing, but consider changing all your if (isWon) {break;} statements to be return winner;.
+There are some schools of thought that suggest early return is a Mistake thing, but consider changing all your if (isWon) {break;} statements to be return winner;.
 
 We can then get rid of the isWon and the winner variables entirely, as well as the then the unnecessary checks to gate each logic loop. Your method would look like:
 

@@ -7,4 +7,4 @@ https://www.hackerrank.com/work/codepair
 lockfreeStack\n\nLinkedList \nupdate head\n\nenumerate the direction of solution and try it; know the assumption and verify it\nmy assumption:  if true then update\nwhy not be boxing and loop	"\npop() {\n\n}\n\npush(val) {\nupdate = new Node(val);\ndo {\nheadOld = head;\n\nupdate.next = headOld.next; \nhead = update\n\nwhile(!head.compareAndSet(headOld, update));\n\n}"
 coniinuous 4 balls	preprocessing and next pass to verify in diff directions
 mistakes	"costs -> cost\nfailrly->fairly\nprivate static void\nn == 0 || costs[0]\nMath.min\nint[], ArrayList. add\nfor (int k = 0; k < m; k++) {\n\n                    if (k == j) continue;\n\n                    min = Math.min(min, prev[k]);\n\n                }\n\n int min = Integer.MAX_VALUE;\n\n"
-90% accurate for E	"bad: isBST(left, min, root.val); \n        isBST(right, root,val,max); \nreturn isBST() & isBST()"
+90% accurate for E	"Mistake: isBST(left, min, root.val); \n        isBST(right, root,val,max); \nreturn isBST() & isBST()"

@@ -17,7 +17,7 @@ class Solution(object):
                 result[-1].end = max(result[-1].end, interval.end)
         return result
            
-#bad solution
+#Mistake solution
     #sort
         # toInsert = 0
         # i = 0
