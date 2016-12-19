@@ -1,3 +1,62 @@
+for key in dict.iterkeys(): ...
+
+for value in dict.itervalues(): ...  not itervalues #Mistake
+leetcode support both 2 and 3 version methods, groupAnagrams error testcases
+
+for key, value in dict.iteritems(): ...
+This means that for x in dict is shorthand for for x in
+   dict.iterkeys().
+   	
+In python3 dict.iterkeys(), dict.itervalues() and dict.iteritems() are no longer supported. U
+se dict.keys(), dict.values() and dict.items()
+*
+namedtuple()	factory function for creating tuple subclasses with named fields
+deque	list-like container with fast appends and pops on either end
+ChainMap	dict-like class for creating a single view of multiple mappings
+Counter	dict subclass for counting hashable objects
+OrderedDict	dict subclass that remembers the order entries were added
+defaultdict	dict subclass that calls a factory function to supply missing values
+UserDict	wrapper around dictionary objects for easier dict subclassing
+UserList	wrapper around list objects for easier list subclassing
+UserString	wrapper around string objects for easier string subclassing
+
+https://docs.python.org/3/library/collections.html
+
+*ass collections.OrderedDict([items])
+Return an instance of a dict subclass, supporting the usual dict methods. An OrderedDict is a dict that remembers the order that keys were first inserted. If a new entry overwrites an existing entry, the original insertion position is left unchanged. Deleting an entry and reinserting it will move it to the end.
+
+New in version 2.7.
+
+OrderedDict.popitem(last=True)
+The popitem() method for ordered dictionaries returns and removes a (key, value) pair. The pairs are returned in LIFO order if last is true or FIFO order if false.
+
+In addition to the usual mapping methods, ordered dictionaries also support reverse iteration using reversed().
+* collections.Counter([iterable-or-mapping])
+A Counter is a dict subclass for counting hashable objects. It is an unordered collection where elements are stored as dictionary keys and their counts are stored as dictionary values. Counts are allowed to be any integer value including zero or negative counts. The Counter class is similar to bags or multisets in other languages.
+
+Elements are counted from an iterable or initialized from another mapping (or counter):
+
+>>>
+>>> c = Counter()                           # a new, empty counter
+>>> c = Counter('gallahad')                 # a new counter from an iterable
+>>> c = Counter({'red': 4, 'blue': 2})      # a new counter from a mapping
+>>> c = Counter(cats=4, dogs=8)             # a new counter from keyword args
+Counter objects have a dictionary interface except that they return a zero count for missing items instead of raising a KeyError:
+
+>>>
+
+>>> c = Counter(['eggs', 'ham'])
+>>> c['bacon']                              # count of a missing element is zero
+0
+Setting a count to zero does not remove an element from a counter. Use del to remove it entirely:
+
+>>>
+>>> c['sausage'] = 0                        # counter entry with a zero count
+>>> del c['sausage']                        # del actually removes the entry
+
+  * Not camel case but this : OrderedDict
+
+
   i+=1; j+=1
             str[end], str[start] = str[start] , str[end]
 

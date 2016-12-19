@@ -1,3 +1,8 @@
+* searchInsertbad: if compare only two for start < end, there's a chance to get stuck. so always leave three
+  if nums[m] >= target:
+                end = m
+            else:  
+                start = m  # get stuck here if target bigger but only 0 1, start =0 
 * lengthOfLastWord, string for the last, doing backward will be the best bet
   if start >0 and s[start-1] == ' ' and s[start] != ' ':
   lastcount/count won't work 
