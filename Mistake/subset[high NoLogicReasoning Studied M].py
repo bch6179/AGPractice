@@ -1,1 +1,0 @@
-/mnt/c/Users/zhiqi/Documents/KennyOwn/AGPractice/Pyn/subset[high NoLogicReasoning Studied M].py

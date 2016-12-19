@@ -1,1 +1,0 @@
-/mnt/c/Users/zhiqi/Documents/KennyOwn/AGPractice/Pyn/majorityNumberII[NoLogicReasoning ModifyAndConquer Studied M].py

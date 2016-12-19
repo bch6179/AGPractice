@@ -1,1 +1,0 @@
-Pyn/.vscode/.ropeproject/config.py

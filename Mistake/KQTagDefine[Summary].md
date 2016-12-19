@@ -1,1 +1,0 @@
-KQTagDefine[Summary].md
