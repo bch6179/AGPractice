@@ -1,3 +1,28 @@
+*>>> random.randint(1, 10)  # Integer from 1 to 10, endpoints included
+7
+>>> random.randrange(0, 101, 2)  # Even integer from 0 to 100
+26
+>>> random.choice('abcdefghij')  # Choose a random element
+'c'
+
+>>> items = [1, 2, 3, 4, 5, 6, 7]
+>>> random.shuffle(items)
+>>> items
+[7, 3, 2, 5, 6, 4, 1]
+
+>>> random.sample([1, 2, 3, 4, 5],  3) 
+
+The defaultdict constructor takes a function as a parameter and constructs a value using that function.
+but dict have to check beofore access it
+lambda: None
+lambda: 1
+is the same as the parameterless function f that does this
+
+def f():
+ return 1
+
+setdefault('a', []).append(1) if 'a' not exist, set to default [] and then append, similar to get
+
 for key in dict.iterkeys(): ...
 
 for value in dict.itervalues(): ...  not itervalues #Mistake
