@@ -1,3 +1,6 @@
+*int addDigits(int num) {
+        return 1 + (num - 1) % 9;
+    }
 * originalDigits if really hard, specialize find that, or customize for each
 *findContentChildren think further really start assigning to greater factor? or lower
 * searchInsertbad: if compare only two for start < end, there's a chance to get stuck. so always leave three
