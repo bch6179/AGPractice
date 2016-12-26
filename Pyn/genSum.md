@@ -1,3 +1,12 @@
+*
+recursion use
+
+1.  in enumeration/permutaion
+Compute increasingly save time:  N queen , backtracking based on enumeration on column location, and then increase row as deeper level of recursion,
+if partial result conflicts on previous partial then abort by checking eligibility of the matrix diff <= 1
+build set increasingly save space: powerset of number array,   (decrease and conquer: comparing to bottom up get n-1 and based on that duplicate ,get n )
+
+2. divde and conquery
 *int addDigits(int num) {
         return 1 + (num - 1) % 9;
     }
