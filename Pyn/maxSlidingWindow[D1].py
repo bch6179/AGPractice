@@ -1,4 +1,6 @@
- 
+ #1 priority queue  O(nlogw)
+ #2 deque  O(n)   dq.popleft(), nums[dq[0]]maintain the max number
+ #3 list []
 class Solution:
     # @param {integer[]} nums
     # @param {integer} k

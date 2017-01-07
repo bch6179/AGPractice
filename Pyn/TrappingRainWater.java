@@ -47,7 +47,7 @@ public:
         int water = 0;
 
         for(int i=1; i<n; i++) {
-            if(A[i]>A[s.top()]) {
+            if(A[i]>A[s.top()]) { # Now seeing a upper after stacking lower (taller than the previous)
                 int bottom = A[s.top()];
                 s.pop();
                 while(!s.empty() && A[i]>=A[s.top()]) {
@@ -55,7 +55,7 @@ public:
                     bottom = A[s.top()];
                     s.pop();
                 }
-                if(!s.empty()) water += (A[i]-bottom)*(i-s.top()-1);
+                if(!s.empty()) water += (A[i]-bottom)*(i-s.top()-1); ## add the last gap if the last stacked former grater than A[I]
             }
             s.push(i);
         }

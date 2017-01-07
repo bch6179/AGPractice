@@ -1,4 +1,44 @@
 
+import sys
+class Solution(object):
+    def getMoneyAmount(self, n):
+        def dfs(n, i, j):
+            if n <= 1:
+                return 0 
+        
+            if i >= j: 
+                return 0 
+                
+            if DP[i][j] != -1:
+                return DP[i][j]
+            
+            gMin =sys.maxsize
+            for k in range(i+1, j): # 1 3 2 , 2:5
+                localMax = k + max(dfs(n, i, k-1), dfs(n, k+1, j))
+                gMin = min(gMin, localMax)
+                
+            DP[i][j] = i if i+1 == j else gMin
+            return DP[i][j] #Mistake not DP[i,j]
+                 
+        DP = [[-1 for i in range(n+1)] for j in range(n+1)] 
+        return dfs(n, 1, n) #Mistake  forgot return
+    def getMoneyAmount(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        table = [[0 for i in range(n+1)] for j in range(n+1)]
+        for j in range(2, n+1): #Mistake use for in stead of while
+            for i in range(j-1, 0, -1): # i 1, 2:1, 3:2:1
+                gMin = sys.maxsize
+                for k in range(i+1, j): # i = 1 ,skip this loop, i: =2, j=3 ,skip, i=1, j=3, k= 2; 3:4, i=2, j=4; i=1, j=4; 
+                    localMax = k+ max(table[i][k-1],  table[k+1][j])
+                    gMin = min(gMin, localMax)
+                table[i][j] = i if i+1==j else gMin
+        return table[1][n]
+
+
+
 public class Solution {
     public int getMoneyAmount(int n) {
         int[][] table = new int[n+1][n+1];

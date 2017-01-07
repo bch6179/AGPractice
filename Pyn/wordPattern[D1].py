@@ -8,17 +8,17 @@ class Solution(object):
         """
         
         #pattern a:(0,3) b:(1,2)
-        pmap = defaultdict()
-        map = defaultdict()
+        pmap = defaultdict(lambda: [])
+        map = defaultdict(lambda:[])
         
         #pmap.setdefault([])
         for i, c in enumerate(list(pattern)):
-            pmap.get(c, []).append(i)
+            pmap[c].append(i)
         for i,word in enumerate(str.split(' ')):
-            map.get(word, []).append(i)
+            map[word].append(i)
         i = 0
         while i < min(len(pmap),len(map)):
-            if map[i][1] != pmap[i][1]:  #dog: 0,3, cat: 1,2
+            if map.values()[i]  != pmap.values()[i]:  #dog: 0,3, cat: 1,2
                 return False
             i+=1
         return i == len(map)

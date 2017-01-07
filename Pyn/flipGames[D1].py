@@ -1,4 +1,7 @@
-      class Solution(object):
+#       class Solution(object):
+#           he game ends when a person can no longer make a move and therefore the other person will be the winner.
+
+# Write a function to compute all possible states of the string after one valid move.
     def generatePossibleNextMoves(self, s):
         """
         :type s: str

@@ -1,3 +1,5 @@
+# Find All Duplicates in an Array
+
 #Methond 1 :is circle , when you finished the swapping but found same elem in two different cells, then it's duplicated
 # space not including the input and output variables
 

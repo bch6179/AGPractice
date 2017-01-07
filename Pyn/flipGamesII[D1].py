@@ -1,10 +1,10 @@
-ou are playing the following Flip Game with your friend: Given a string that contains only these two characters: + and -, you and your friend take turns to flip twoconsecutive "++" into "--". The game ends when a person can no longer make a move and therefore the other person will be the winner.
-Write a function to determine if the starting player can guarantee a win.
-For example, given s = "++++", return true. The starting player can guarantee a win by flipping the middle "++" to become "+--+".
-Follow up:
-Derive your algorithm's runtime complexity.
-Understand the problem:
-At first glance, backtracking seems to be the only feasible solution to this problem. We can basically try every possible move for the first player (Let's call him 1P from now on), and recursively check if the second player 2P has any chance to win. If 2P is guaranteed to lose, then we know the current move 1P takes must be the winning move. The implementation is actually very simple:
+# ou are playing the following Flip Game with your friend: Given a string that contains only these two characters: + and -, you and your friend take turns to flip twoconsecutive "++" into "--". The game ends when a person can no longer make a move and therefore the other person will be the winner.
+# Write a function to determine if the starting player can guarantee a win.
+# For example, given s = "++++", return true. The starting player can guarantee a win by flipping the middle "++" to become "+--+".
+# Follow up:
+# Derive your algorithm's runtime complexity.
+# Understand the problem:
+# At first glance, backtracking seems to be the only feasible solution to this problem. We can basically try every possible move for the first player (Let's call him 1P from now on), and recursively check if the second player 2P has any chance to win. If 2P is guaranteed to lose, then we know the current move 1P takes must be the winning move. The implementation is actually very simple:
 
 Code (Java):
 

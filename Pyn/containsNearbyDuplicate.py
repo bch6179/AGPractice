@@ -16,3 +16,19 @@ class Solution(object):
             hash[nums[i]] = i
         return False
 
+class Solution:
+    # @param {integer[]} nums
+    # @param {integer} k
+    # @return {boolean}
+    def containsNearbyDuplicate(self, nums, k):
+        if not nums:
+            return False
+        pos = set()
+        for i,v in enumerate(nums):
+            if len(pos) > k:
+                pos.remove(nums[i-k-1])
+            if nums[i] in pos:
+                return True
+            else:
+                pos.add(nums[i])
+        return False

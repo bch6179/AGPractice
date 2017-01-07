@@ -28,7 +28,7 @@ class Solution(object):
     # @dp is how many palindromes in the word
     def minCut3(self, s):
         dp = [0 for i in range(len(s)+1)]
-        p = [[False for i in range(len(s))] for j in range(len(s))]
+        p = [[False for i in range(len(s))] for j in range(len(s))]  #isPalindromes
         for i in range(len(s)+1):
             dp[i] = len(s) - i
         for i in range(len(s)-1, -1, -1):

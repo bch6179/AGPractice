@@ -1,6 +1,4 @@
-
-
-
+ 
 //stack left, stack right, print
 
 List<Integer> postOrder1(TreeNode root) {

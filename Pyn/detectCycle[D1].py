@@ -1,27 +1,28 @@
-main idea is the same with problem Linked List Cycle II,https://leetcode.com/problems/linked-list-cycle-ii/. Use two pointers the fast and the slow. The fast one goes forward two steps each time, while the slow one goes only step each time. They must meet the same item when slow==fast. In fact, they meet in a circle, the duplicate number must be the entry point of the circle when visiting the array from nums[0]. Next we just need to find the entry point. We use a point(we can use the fast one before) to visit form begining with one step each time, do the same job to slow. When fast==slow, they meet at the entry point of the circle. The easy understood code is as follows.
+# main idea is the same with problem Linked List Cycle II,https://leetcode.com/problems/linked-list-cycle-ii/. Use two pointers the fast and the slow. The fast one goes forward two steps each time, while the slow one goes only step each time. They must meet the same item when slow==fast. In fact, they meet in a circle, the duplicate number must be the entry point of the circle when visiting the array from nums[0]. Next we just need to find the entry point. We use a point(we can use the fast one before) to visit form begining with one step each time, do the same job to slow. When fast==slow, they meet at the entry point of the circle. The easy understood code is as follows.
 
-int findDuplicate3(vector<int>& nums)
-{
-	if (nums.size() > 1)
-	{
-		int slow = nums[0];
-		int fast = nums[nums[0]];
-		while (slow != fast)
-		{
-			slow = nums[slow];
-			fast = nums[nums[fast]];
-		}
-
-		fast = 0;
-		while (fast != slow)
-		{
-			fast = nums[fast];
-			slow = nums[slow];
-		}
-		return slow;
-	}
-	return -1;
-}
+class Solution(object):
+    def findDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) <= 1:
+            return -1
+        try:
+            slow = nums[0]
+            fast = nums[slow]
+            
+            while slow != fast:
+                slow = nums[slow]
+                fast = nums[nums[fast]] #Mistake not slow, otherwise inifi
+            
+            fast = 0      #back one step since we have init fast =slow.next
+            while slow != fast:
+                fast = nums[fast]
+                slow = nums[slow]
+            return slow
+        except:           #no duplicate; if duplicate , then we won't have index number is n
+            return -1
 
  this problem, nums[a] = b can be seen as a.next = b, the the problem is exactly the same as Linked List Cycle II which finds the node that cycle begins.
 
@@ -35,7 +36,7 @@ def findDuplicate(self, nums):
                 finder = nums[finder]
                 slow = nums[slow]
             return finder
-
+        
               H: distance from head to cycle entry E
         D: distance from E to X
         L: cycle length

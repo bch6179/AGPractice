@@ -43,7 +43,7 @@ public:
         vector<int> counts(26, 0);
         for (int i = 0; i < s.size(); ++i) {
             maxCnt = max(maxCnt, ++counts[s[i] - ‘A‘]);
-            while (i - start + 1 - maxCnt > k) {
+            while (i - start + 1 - maxCnt > k) { #read from <- changeable k less than the needed, we need to adjust, otherwise keeping increasing
                 --counts[s[start] - ‘A‘];
                 ++start;
             }

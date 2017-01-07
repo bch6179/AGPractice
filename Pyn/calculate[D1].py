@@ -1,3 +1,5 @@
+# since + * different order, prepare and conquer, get done * / first, and then later for * 
+# here the trick is to read previous op when seeing a new op
 class Solution(object):
     def calculate(self, s):
         """
@@ -15,13 +17,13 @@ class Solution(object):
             if s[i].isdigit():
                 num = num*10 + ord(s[i])-ord('0')
             if (not s[i].isdigit() and not s[i].isspace()) or i == len(s)-1:
-                if op == '-':
+                if op == '-': #previous op is -
                     stack.append(-num)
                 elif op == '+':
                     stack.append(num)
                 elif op == '*':
                     stack.append(stack.pop()*num)
-                else: #Mistake will miss last one if op == '/':
+                else: #Mistake will miss last one if op == '/': has to be / to go here even for the last c is digit
                     if num != 0:
                         #stack.append(stack.pop()//num)  #Mistake -3//2 = -2 
                         tmp = stack.pop()

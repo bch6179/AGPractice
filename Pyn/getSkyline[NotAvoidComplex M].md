@@ -1,3 +1,18 @@
+
+#[Note]
+#=====
+* change comparason problem to a search problem:
+instead of o(n^2) comparason based on the box, critical point as a from base import *
+, search for the max hight among the active sets, which if implemented by heap, no longer o(n)
+
+# 1.   based on active sets of box- not easy to understand; add begin lines to skyline first; not to pop end lines until next not shaded comes in or the last one; this way we can explicitly handle the edge cases like starting at the same start, ending at the same end; checked house iteratively by saviging critical points and liveHR which contains shade coverage by R
+#2. converted to edges , prefererd, when end edge occurs, remove the start edge from queue immediately;
+#check the converted edges case iteratively after sorting carefully for the edge cases, and handle it based on start or end. if start, heappush it, and add to skyline only if start hight greater than the top in the heap.If end, remove from the heap, add to skyline the next highest point or 0 if non left. the first ones always added to skyline.
+#3. OO maxheap method, feed the maxheap with the converted points, get the maxline from maxheap and then compare based on start and end saving to skyline accordingly.
+#4 D&D
+
+=======================Reference=============
+
 https://briangordon.github.io/2014/08/the-skyline-problem.html
 
 now that we’re able to scan through the critical points and consider only the “active” set of rectangles at each critical point, an interesting opportunity presents itself. Our current solution can be written as:

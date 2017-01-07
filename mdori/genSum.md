@@ -1,3 +1,25 @@
+﻿Recursion:
+	systematical handling from the ituitive process
+  	1. Steps Move n-1, move, move n-1
+    2. alpha order, set: select as first from position i from 1 to n and then the one after that,start to recursion
+    combination : select from nonvisit among 0-n; second start to recursion
+    base case + effective recursion + arguments as variables for next recursion
+   
+   application itself explicitly recursion n!, decrease and conquer, subproblems
+
+backtracking: solving uncertainty by enumerating , and then native recursion in another dimension, even for the max stacking box; rob house problems
+
+   
+ Iteration
+		prev/cur, n, n+1 looking forward
+    n n-1, looking backward
+    def variable/list, reset, for node, make sure the change get in place
+    make suer next iter everything set to places; linkedlist node not None as invrariant, processes as nature inside
+    arrays invariant: window max unique < len - 
+    make sure the last case get covered in use one loop to handle duplication
+
+LinkedList:
+	
 *int addDigits(int num) {
         return 1 + (num - 1) % 9;
     }

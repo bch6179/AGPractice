@@ -1,3 +1,26 @@
+
+# /**
+#  * Design and implement a data structure for Least Recently Used (LRU) cache.
+#  * It should support the following operations: get and set.
+#  *
+#  * get(key) - Get the value (will always be positive) of the key if the key
+#  * exists in the cache, otherwise return -1.
+#  * (get means use, so we need to update)
+#  *
+#  * set(key, value) - Set or insert the value if the key is not already present.
+#  * When the cache reached its capacity, it should invalidate the least recently
+#  * used item before inserting a new item.
+#  *
+#  * Tags: Data Structure
+#  *
+#  * Use 2 data structures to implement an LRU Cache
+#  * 1. A Queue which is implemented using a doubly linekd list. The max size of
+#  * the queue will be equal to cache size. Put most recently used at the end
+#  * 2. A Hash with Node's value as key and the Node as value
+#  * 3. A dummy head for Doubly LinkedList
+#  */
+# class 
+
 class DoubleLinkedList:
     def __init__(self, key = 0, val =0):
         self.key = key
@@ -17,7 +40,12 @@ class LRUCache(object):
         self.tail = DoubleLinkedList()
         self.head.next = self.tail
         self.tail.prev = self.head
-
+    # /**
+    #  * Check key in map
+    #  * If not in map, return -1
+    #  * If in map, update usage by getting node and moving it to tail
+    #  * Then return its value
+    #  */
     def get(self, key):
         """
         :rtype: int

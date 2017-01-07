@@ -1,3 +1,7 @@
+#[Note]
+#=====
+#i start from 1 by handling i = 1 specially, in the same pass, since row by row initing won't affect following lines
+#otherwise, 0 need int_max
 class Solution(object):
     def minPathSum2(self, grid):
         """

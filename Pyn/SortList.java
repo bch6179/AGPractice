@@ -53,7 +53,7 @@ public class Solution {
  
 
         while(head != null) {    // head == target
-            ListNode cur = dummy;
+            ListNode cur = dummy;  2 1   1  2 
             while(  cur.next != null && cur.next.val < head.val) { // not needed cur != target
                      cur = cur.next;
 

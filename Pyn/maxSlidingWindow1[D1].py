@@ -1,3 +1,4 @@
+#practise, look at explanation at another
 from heapq import *
 
 a = [5,3,6, 7,6,5,4,3]

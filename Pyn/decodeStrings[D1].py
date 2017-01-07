@@ -1,4 +1,4 @@
-how to addd new concanated with the remaining before ]
+# how to addd new concanated with the remaining before ]
 
 public class Solution {
     public String decodeString(String s) {
