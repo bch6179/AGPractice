@@ -1,2 +1,0 @@
-[M PrevCur]
-[W1]

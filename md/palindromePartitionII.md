@@ -1,2 +1,0 @@
-StudyMore
-W1

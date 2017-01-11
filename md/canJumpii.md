@@ -1,1 +1,0 @@
-high Medium Window Greedy

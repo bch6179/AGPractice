@@ -1,2 +1,0 @@
-[BinarySearch]
-[D1]

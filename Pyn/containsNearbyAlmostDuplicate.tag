@@ -1,1 +1,0 @@
-[Window Bucket NotScalable M]

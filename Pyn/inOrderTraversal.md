@@ -1,1 +1,0 @@
-diff from preorder is to pop until the leftest node reach, stack only the root nodes ; when backward,print the node and explore the right side. doing it recursively

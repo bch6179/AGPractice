@@ -1,1 +1,0 @@
-NoLogicReasoning ModifyAndConquer Studied M

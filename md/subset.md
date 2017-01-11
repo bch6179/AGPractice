@@ -1,1 +1,0 @@
-high NoLogicReasoning Studied M
