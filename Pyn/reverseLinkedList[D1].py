@@ -10,7 +10,7 @@ def reverse(root): #? bad
 def reverse2(root, tail = None):
     if root == None:
         return None
-    next = root.next
+    next = root.next #Mistake should save to next, otherwise it become tail for next recursion
     root.next = tail
     if next is None:
         return root

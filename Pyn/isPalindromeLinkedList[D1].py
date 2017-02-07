@@ -1,4 +1,4 @@
-slow->next=reverseList(slow->next);
+﻿slow->next=reverseList(slow->next);
 slow=slow->next;
 After running these two lines, slow will always point to the first node of the second half of the linked list.
 

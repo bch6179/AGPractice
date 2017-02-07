@@ -1,3 +1,8 @@
+# 栈内存储的是高度递增的下标。对于每一个直方图高度，分两种情况。1：当栈空或者当前高度大于栈顶下标所指示的高度时，当前下标入栈。否则，2：当前栈顶出栈，并且用这个下标所指示的高度计算面积。而这个方法为什么只需要一个栈呢？因为当第二种情况时，for循环的循环下标回退，也就让下一次for循环比较当前高度与新的栈顶下标所指示的高度，注意此时的栈顶已经改变由于之前的出栈。
+# Java代码：
+
+
+# stacking the smallest points lower than cur point, when pop cur point, Hcur*(i-stack[-1]-1)
 def largestRectangleArea(heights):
         """
         :type heights: List[int]

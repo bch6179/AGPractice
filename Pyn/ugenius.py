@@ -1,0 +1,1 @@
+No they are not.   A turning complete language can define all computable processes.   A regular expression can only define things at are doable on a machine with no memory (finite state machines).   A turning complete language needs a least one stack to be lexable (recognized) and needs the equiv of RAM (bi-directional tape.. aka a (universal) Turing machine) to be processed

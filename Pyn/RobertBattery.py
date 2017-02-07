@@ -7,7 +7,7 @@ import java.util.Random;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
-
+//1 5 2 9
 public class RobotBattery {
 
   // @include

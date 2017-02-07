@@ -8,7 +8,7 @@ This is for finding k nearest neighbor from the original point
 using a MAX heap, each time if the dist is less than the MAX we put it into the q.
 **/
 public Collection<Point> getClosestPoints(Collection<Point> points, int k) {
-    PriorityQueue<Point> queue = new PriorityQueue<Point>(k);
+    <Point> queue = new PriorityQueue<Point>(k);
 
     for (Point point : points) {
         if (queue.size() < k) {

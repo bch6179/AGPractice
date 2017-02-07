@@ -84,7 +84,7 @@ def trap(bars):
                 s.pop()    # get (5-4) * (6-2-1) = 3
             if s: # s still has sth bigger than the last bottom 5 (last popped above), need to get the 4 part, but here is 0; if empty, then no need to add 
                 res += (bars[i]- bottom) * (i -s[-1]-1)
-        s.append(i)
+        s.append(i)  # 5 4  
     return res
 
-print trap([5,4,1,4,7])
+print trap([1,5,3,1,4,7])

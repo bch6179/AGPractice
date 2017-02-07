@@ -1,10 +1,13 @@
-#[Note]
+﻿#[Note]
 #=====
 #can adjust left by + 1 while init with 0
 #s[i] in found
 #for i in range(len(s))
 
-
+/*Given a string, find the length of the longest substring without repeating characters. 
+ * For example, the longest substring without repeating letters for "abcabcbb" is "abc", 
+ * which the length is 3. For "bbbbb" the longest substring is "b", with the length of 1.
+*/
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
         """

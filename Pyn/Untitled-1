@@ -1,0 +1,24 @@
+def mapToGeinus(ag):
+    t = os.path.splitext(ag)
+    mdname = t[0].split("[")[0] 
+    gmap = '/Users/zhitaoq/Documents/AGPractice/Pyn/Metrics/geniusMap.txt'
+    priority = 0
+    if searchTagTS(ag, '5Star'):
+        priority = 5
+    elif searchTagTS(ag, '4tar'):
+        priority = 4
+    elif searchTagTS(ag, '3tar'):
+        priority = 3 
+    elif searchTagTS(ag, '2tar'):
+        priority = 2  
+    elif searchTagTS(ag, '1tar'):
+        priority = 1
+    elif searchTagTS(ag, 'Disable'):
+        priority = 0
+    try:
+        print "mapToGeinus"+ag
+        with open(gmap, 'a+') as f: 
+            f.write('{}	{}			{}		{}\n'.format(mdname, datetime.fromtimestamp(creation_date(ag)), 0, 'Note'))
+    except:
+        return False
+    return False

@@ -73,3 +73,27 @@ class Solution(object):
             else:
                 curString += c
         return curString
+
+        class Solution(object):
+    def decodeString(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        stack = []
+        stack.append(["", 1])
+        
+        num = 0
+        for c in s:
+            if c.isdigit():
+                num  = num*10+ int(c)
+            elif c == '[':
+                stack.append(["", num])
+                num = 0
+            elif c == ']':
+                t, k = stack.pop()
+                stack[-1][0] += t * k
+            else:
+                stack[-1][0] += c
+                
+        return stack[0][0]

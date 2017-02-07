@@ -8,6 +8,7 @@ class Solution(object):
         while beg < end and nums[beg] == nums[beg + 1]:
             beg += 1
         while end > beg and nums[end] == nums[end - 1]:
+            +
             end -= 1
         if beg == end:
             return nums[beg]
@@ -90,3 +91,52 @@ print s.findMin([2,2,0,0,0])
 print s.findMin([0,1,2,2,2,2])
 print s.findMin([3 ,1,3,3,3]) 
 print s.findMin([3,3,1,3])  # Am == Ae, adjust sb , otherwise miss ---~- or -~-----, Am = As, adjust e, so undecision
+
+/**  * Suppose a sorted array is rotated at some pivot unknown to you
+beforehand.  *  * (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).  *
+* You are given a target value to search. If found in the array return
+its  * index, otherwise return -1.  *  * You may assume no duplicate
+exists in the array.  * * Tags: Array, Binary Search  */ class
+SearchRotatedSortedArr {     public static void main(String[] args) {
+
+    }
+
+    /**
+     * Binary Search.
+     * Check which half is sorted.
+     * If target is within that half, search in that half.
+     * If not, search in the other half.
+     */
+
+    //RM: quick switch, even you have solved similar; favor smaller variants like
+    // A[m] A[l] and then target and A[l]; although you checked A[r] for findMin, b
+    //ut here leave open;
+    // solve the reachable, leave CPU handle the uncertainty; the key is to reduce unknown area by identifying determinate area;leave the undecision aresa in the unknown
+    //leave the edge case to consider at last , nonrotated, and see if the target < Am, target > Al cover it
+    //Am > Al not decide the scenario; 
+    
+
+#      public int findMin(int[] A) {
+#         // write your code here
+#         int l = 0;
+#         int r = A.length - 1;
+#         while(l + 1 < r) {
+#             if (A[l] == A[l+1]) {
+#                 l++;
+#                 continue;
+#             }
+#             if (A[r] == A[r-1]) {
+#                 r--;
+#                 continue;
+#             }
+
+#             int m = l + (r-l)/2;
+#             if (A[m] > A[r]) {
+#                 l = m;
+#             }
+#             else r = m;
+#         }
+
+#         return (A[l] > A[r]?A[r]:A[l]);
+#     }
+# }

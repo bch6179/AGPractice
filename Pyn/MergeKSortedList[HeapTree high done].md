@@ -1,5 +1,20 @@
 ﻿[Note]
 ======
+ 0) heap
+ 1) while k > 0:
+        start = 0
+        end = k
+        while start < end:
+            merge2
+            start++, end--
+            adjust k =   end if start <= end
+    8/4 4/2 /2/1     4*n+ 2*2n+1*4n    8nlog8, knlogk
+2) d&d 
+ 
+======
+ Time complexity of this solution would be O(nk Log k
+Divide and Conquer approach is discussed. This approach doesn’t require extra space for heap and works in O(nk Log k)
+Time Complexity of above algorithm is O(nk logk) as outer while loop in function mergeKLists() runs log k times and every time we are processing nk elements.
  
  This *text* has a [link to wikipedia](http://wikipedia.org/)
  

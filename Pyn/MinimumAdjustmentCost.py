@@ -1,3 +1,5 @@
+Similar to burstBloon: DP small dim , as last 
+
 Lintcode: Minimum Adjustment Cost 解题报告
 
 Minimum Adjustment Cost
@@ -16,6 +18,67 @@ Given [1,4,2,3] and target=1, one of the solutions is [2,3,2,3], the adjustment 
 
 原题链接：http://lintcode.com/zh-cn/problem/minimum-adjustment-cost/#
 
+class Solution:
+    # @param A: An integer array.
+    # @param target: An integer.
+    def MinAdjustmentCost(self, A, target):
+        # write your code here
+        f = [[ sys.maxint for j in xrange(101)] for i in xrange(len(A)+1)]
+        for i in xrange(101):
+            f[0][i] = 0
+        n = len(A)
+        for i in xrange(1,n+1):
+            for j in xrange(1, 101):
+                f[i][j] = sys.maxint:
+                for k in xrange(1,101):
+                    if abs(j-k) <= target:
+                        f[i][j] = min(f[i][j], f[i-1][k] + abs(A[i-1]-j))
+        ans = f[n][100]
+        for i in xrange(101):
+            if f[n][i] < ans:
+                ans = f[n][i]       
+
+        return ans
+
+Note
+You can assume each number in the array is a positive integer and not greater than 100
+注意是positive number 所以j的起始值是1不是0 因为这个犯了好几次错....
+state: dp[i][v] 表示前i个数, 第i个数调整为v 满足条件, 所需要的最小代价
+function:如果i个数时j 那么第i-1个数k是要满足 Math.abs(j - k) < target的
+dp[i][v] = Math.min(dp[i-1][k] +  Math.abs(j -A.get(i-1))) //第i个数时j 第i-1个数为k时候使代价最小
+
+如果第i个数是j, 那么第i-1个数k只能在[lowerRange, UpperRange]之间，lowerRange=Math.max(0, j-target), upperRange=Math.min(99, j+target), 这样的话，transfer function可以写成： for (int p=lowerRange; p<= upperRange; p++) { 　　res[i][j] = Math.min(res[i][j], res[i-1][k] + Math.abs(j-A.get(i-1))); }
+initial:dp[0][j]= 0
+return: 满足条件的最小代价 Math.min(dp[m][j]) // 改变j的值找到最小的代价
+
+public class Solution {
+
+    public int MinAdjustmentCost(ArrayList A, int target) {
+        int m = A.size();
+        int[][] dp = new int[m+1][101];
+        for (int j = 0; j < 101; j++) {
+            dp[0][j] = 0;
+        }
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= 100; j++) {
+                dp[i][j] = Integer.MAX_VALUE;
+                for (int k = 1; k <= 100; k++) {
+                    if (Math.abs(j - k) > target) {
+                        continue;
+                    }
+                 
+                    dp[i][j] = Math.min(dp[i][j], dp[i-1][k] +  Math.abs(j -A.get(i-1)));
+//Math.abs(j -A.get(i-1)))表示第i个数改为j所需代价
+                }
+            }
+        }
+        int result = Integer.MAX_VALUE;
+        for (int j = 1 ; j <= 100; j++) {
+            result = Math.min(result, dp[m][j]);
+        }
+        return result;
+    }
+}
 
 
 SOL 1:
@@ -241,54 +304,7 @@ D[i][v]: 把index = i的值修改为v，所需要的最小花费
 
 
 
-复制代码
- 1 /*
- 2      * SOLUTION 4：
- 3      * DP
- 4      * */
- 5     /**
- 6      * @param A: An integer array.
- 7      * @param target: An integer.
- 8      */
- 9     public static int MinAdjustmentCost(ArrayList<Integer> A, int target) {
-10         // write your code here
-11         if (A == null || A.size() == 0) {
-12             return 0;
-13         }
-14
-15         // D[i][v]: 把index = i的值修改为v，所需要的最小花费
-16         int[][] D = new int[A.size()][101];
-17
-18         int size = A.size();
-19
-20         for (int i = 0; i < size; i++) {
-21             for (int j = 1; j <= 100; j++) {
-22                 D[i][j] = Integer.MAX_VALUE;
-23                 if (i == 0) {
-24                     // The first element.
-25                     D[i][j] = Math.abs(j - A.get(i));
-26                 } else {
-27                     for (int k = 1; k <= 100; k++) {
-28                         // 不符合条件
-29                         if (Math.abs(j - k) > target) {
-30                             continue;
-31                         }
-32
-33                         int dif = Math.abs(j - A.get(i)) + D[i - 1][k];
-34                         D[i][j] = Math.min(D[i][j], dif);
-35                     }
-36                 }
-37             }
-38         }
-39
-40         int ret = Integer.MAX_VALUE;
-41         for (int i = 1; i <= 100; i++) {
-42             ret = Math.min(ret, D[size - 1][i]);
-43         }
-44
-45         return ret;
-46     }
-复制代码
+ 
 
 
 GITHUB:

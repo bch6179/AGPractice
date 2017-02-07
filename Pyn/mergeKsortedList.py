@@ -72,7 +72,32 @@ def helper(list, start, end):
     l2 = helper(list, m+1, end)
     return mergeTwoLists(l1, l2) #[Note]
     #===== return linked node, so no worry about the start end; and also start <= end, since mid  <= end, not like i++ j--
-
+from heapq import * #import * mistake
+class Solution(object):
+    def mergeKListsMy(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        #if not lists or len(lists) == 0: return None
+        #if len(lists) == 1: return lists[0]
+        
+        h = []
+        
+        for l in lists:
+            if l: #mistake here 
+                heappush(h, (l.val, l))
+        dummy = ListNode(0)
+        head = dummy
+        while  h:
+            _, t = heappop(h)
+            head.next = t
+            head = head.next
+            if t.next:
+                heappush(h, (t.next.val, t.next)) #Mistake here miss one ), so report wrong error for next line
+        
+        return dummy.next
+        
 from heapq import *
 
 def mergeKsortedList1(list):
@@ -89,6 +114,29 @@ def mergeKsortedList1(list):
         if t.next:
             heappush(heap, (t.next.val, t.next))
     return dummy.next
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        #if not lists or len(lists) == 0: return None
+        #if len(lists) == 1: return lists[0]
+        
+        h = Q.PriorityQueue()
+        
+        for l in lists:
+            if l: #mistake here 
+                h.put((l.val, l))
+        dummy = ListNode(0)
+        head = dummy
+        while  not h.empty(): #h.qsize() > 0:
+            t = h.get()[1]
+            head.next = t
+            head = head.next
+            if t.next:
+                h.put((t.next.val, t.next)) #Mistake here miss one ), so report wrong error for next line
+        
+        return dummy.next
 def mergeKsortedList2(list):
     heap = PriorityQueue()
     for head in list:
