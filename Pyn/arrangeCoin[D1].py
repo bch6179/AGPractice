@@ -1,4 +1,5 @@
-#1 binary search the min x which is close to solve quadratic equation  x(1+x) = 2s  (here say n is s, then stair number k is just like x the last add on to make the sum close to s but not overflow; not ask you to imagine adding the actual value of steps, then the n is not the sum)
+#1 binary search the min x which is close to solve quadratic equation  x(1+x) = 2s  (here say n is s, then binary search running sum problem 
+`(x * ( x + 1)) / 2 <= n`, stair number k is just like x the last add on to make the sum close to s but not overflow; not ask you to imagine adding the actual value of steps, then the n is not the sum)
 #2 simulate the steps adding process identify the bucket that n is located, return the K 
 #  sum=< n < sum+k+1
 
@@ -8,7 +9,10 @@
 # You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.
 
 # Given n, find the total number of full staircase rows that can be formed.
-
+#1
+# 1 1
+# 1 1 1
+# 1
 class Solution(object):
     def arrangeCoins1(self, n):
         """
@@ -101,4 +105,10 @@ print s.arrangeCoins(6)
     #         sum += level;
     #     return max(level - 2, 0);    
     # }
-    
+    he problem is basically asking the maximum length of consecutive number that has the running sum lesser or equal to `n`. In other word, find `x` that satisfy the following condition:
+
+`1 + 2 + 3 + 4 + 5 + 6 + 7 + ... + x <= n`
+`sum_{i=1}^x i <= n`
+Running sum can be simplified,
+
+`(x * ( x + 1)) / 2 <= n`

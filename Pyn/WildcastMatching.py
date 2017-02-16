@@ -1,3 +1,6 @@
+#1)try * possible location substrings and decrease and conquer
+#2) classic reverse Metrics DP
+
 # leetcode Question 123: Wildcard Matching
 # Wildcard Matching#[Note]
 #=====DFS, while helper() , anyof the case work then break
@@ -118,6 +121,34 @@ public:
         return j==plen;
     }
 };
+
+
+
+public class Solution {
+    public boolean isMatch(String s, String p) {
+        boolean[][] match=new boolean[s.length()+1][p.length()+1];
+        match[s.length()][p.length()]=true;
+        for(int i=p.length()-1;i>=0;i--){
+            if(p.charAt(i)!='*')
+                break;
+            else
+                match[s.length()][i]=true;
+        }
+        for(int i=s.length()-1;i>=0;i--){
+            for(int j=p.length()-1;j>=0;j--){
+                if(s.charAt(i)==p.charAt(j)||p.charAt(j)=='?')
+                        match[i][j]=match[i+1][j+1];
+                else if(p.charAt(j)=='*')
+                        match[i][j]=match[i+1][j]||match[i][j+1];
+                else
+                    match[i][j]=false;
+            }
+        }
+        return match[0][0];
+    }
+}
+
+
 A DP solution is also given here. It has O(N^2) time complexity and O(N) space
 
 class Solution {
@@ -275,7 +306,7 @@ def isMatch(self, s, p):
             for n in reversed(range(length)):
                 dp[n+1] = dp[n] and (i == s[n] or i == '?')
         else:
-            for n in range(1, length+1):
+            for n in range(1, length+1):  # hard to under stand , see next one
                 dp[n] = dp[n-1] or dp[n]
         dp[0] = dp[0] and i == '*'
     return dp[-1]
@@ -286,28 +317,3 @@ dp[0] means the empty string '' or s[:0] which only match the pattern '*'
 use the reversed builtin because for every dp[n+1] we use the previous 'dp'
 
 add Java O(m*n) version code
-
-
-public class Solution {
-    public boolean isMatch(String s, String p) {
-        boolean[][] match=new boolean[s.length()+1][p.length()+1];
-        match[s.length()][p.length()]=true;
-        for(int i=p.length()-1;i>=0;i--){
-            if(p.charAt(i)!='*')
-                break;
-            else
-                match[s.length()][i]=true;
-        }
-        for(int i=s.length()-1;i>=0;i--){
-            for(int j=p.length()-1;j>=0;j--){
-                if(s.charAt(i)==p.charAt(j)||p.charAt(j)=='?')
-                        match[i][j]=match[i+1][j+1];
-                else if(p.charAt(j)=='*')
-                        match[i][j]=match[i+1][j]||match[i][j+1];
-                else
-                    match[i][j]=false;
-            }
-        }
-        return match[0][0];
-    }
-}

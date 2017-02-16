@@ -1,12 +1,12 @@
- you have an array from a post-order traversal of a BST, you know that the root is the last element of the array. The left child of the root takes up the first part of the array, and consists of entries smaller than the root. Then follows the right child, consisting of elements larger than the root. (Both children may be empty).
+#  you have an array from a post-order traversal of a BST, you know that the root is the last element of the array. The left child of the root takes up the first part of the array, and consists of entries smaller than the root. Then follows the right child, consisting of elements larger than the root. (Both children may be empty).
 
-________________________________
-|             |              |R|
---------------------------------
- left child     right child   root
-So the main problem is to find the point where the left child ends and the right begins.
+# ________________________________
+# |             |              |R|
+# --------------------------------
+#  left child     right child   root
+# So the main problem is to find the point where the left child ends and the right begins.
 
-Both children are also obtained from their post-order traversal, so constructing them is done in the same way, recursively.
+# Both children are also obtained from their post-order traversal, so constructing them is done in the same way, recursively.
 
 BST fromPostOrder(value[] nodes) {
     // No nodes, no tree
@@ -98,3 +98,18 @@ private int findLastSmaller(value[] nodes, int first, int last, value cut) {
     // now either low == high or nodes[high] < cut and high is the result
     // in either case by the loop invariants
     return high;
+
+
+
+def construct(nums, l ,r):
+
+    if l > r: return None
+    i = r-1
+    while i >= l:
+        if nums[i] < nums[r]:
+            break
+    
+    root = TreeNode(nums[r])
+    root.left = construct(nums, l, i)
+    root.right = construct(nums, i+1, r-1)
+    return root

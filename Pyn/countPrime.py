@@ -29,7 +29,18 @@ class Solution(object):
         #     if isPrime(i):
         #         count+=1
         # return count
-        
+class Solution:
+    # @param {integer} n
+# @return {integer}
+def countPrimes(self, n):
+    if n < 3:
+        return 0
+    primes = [True] * n
+    primes[0] = primes[1] = False
+    for i in range(2, int(n ** 0.5) + 1):
+        if primes[i]:
+            primes[i * i: n: i] = [False] * len(primes[i * i: n: i])
+    return sum(primes)        
 e Sieve of Eratosthenes uses an extra O(n) memory and its runtime complexity is O(n log log n). For the more mathematically inclined readers, you can read more about its algorithm complexity on Wikipedia.
 
 public int countPrimes(int n) {

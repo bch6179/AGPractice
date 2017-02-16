@@ -19,7 +19,7 @@ class Solution(object):
             for i in range(1, len(matrix)):
                 if matrix[i][j] == '1': 
                     cur[i] = min(cur[i-1], prev[i],prev[i-1])+1  #   current cell i,j max square since 0 0
-                    res = max(res, cur[i])
+                    res = max(res, cur[i])  
             #Mistake
             prev = cur #Mistake pre : prev
             cur = [0]*len(matrix)         

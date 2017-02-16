@@ -1,3 +1,31 @@
+Given a complete binary tree, count the number of nodes.
+
+Definition of a complete binary tree from Wikipedia:
+In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and 2h nodes inclusive at the last level h.
+
+class Solution(object):
+    def countNodes(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        def getHeight(root):
+            res = 0
+            while root:
+                res+=1
+                root = root.left # Mistake right is not correct, 1->left is 1 
+            return res
+            
+        if not root: return 0
+        hl = getHeight(root.left)
+        hr = getHeight(root.right)
+         
+        if hl == hr:
+            return pow(2, hl) + self.countNodes(root.right) #Mistkake use pow not ^
+        else:
+            return pow(2,hr) + self.countNodes(root.left)
+
+
 class Solution {
 
 public:
@@ -15,6 +43,8 @@ public:
         while(r) {hr++;r=r->right;}
 
         if(hl==hr) return pow(2,hl)-1;
+
+
 
         return 1+countNodes(root->left)+countNodes(root->right);
 

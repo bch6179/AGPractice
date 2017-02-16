@@ -14,6 +14,54 @@ Similar to merge sort, after dividing to smaller subproblems, combine them with 
  * 
  * Tags: Tree, DP, Backtracking
  */
+def generateTrees(self, n):
+    def node(val, left, right):
+        node = TreeNode(val)
+        node.left = left
+        node.right = right
+        return 
+        #map comprehension
+    def trees(first, last):
+        return [node(root, left, right)
+                for root in range(first, last+1)
+                for left in trees(first, root-1)
+                for right in trees(root+1, last)] or [None]
+    return trees(1, n)
+
+        def dfs(self, start, end):
+            if start == end+1:
+            return 
+        result = []
+        for i in xrange(start, end+1):
+            for l in self.dfs(start, i-1):
+                for r in self.dfs(i+1, end):
+                    node = TreeNode(i)
+                    node.left, node.right  = l, r
+                    result.append(node)
+        return result 
+
+         def dfsMy(l , r):
+            res = []
+            if start == end+1: #Mistake here should end+1 , pass the last check point
+                return None
+                
+            for i in range(1, n+1):
+                l1 = dfs(l, i-1)
+                l2  = dfs( i+1, r)
+                for x in l1:
+                    for y in l2:
+                        root = ListNode(i) #Mistake why put root here
+
+                        root.left = x
+                        root.right = y
+                        res.append(root)
+                        
+            return res or [None]
+        
+        #return dfs(1, n)
+                
+
+
 class UniqueBST2 {
     public static void main(String[] args) {
         

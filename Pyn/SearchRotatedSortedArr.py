@@ -1,4 +1,14 @@
-﻿#category main scenarios , don't too much try to merge the upper M and normal one by looking at the conditions
+﻿
+ # 0207  it still works, but check nums[begin] with nums[m] more productive. However searchingMin it will be difficult which might get one skip since it's not checking against target
+# #    if nums[begin] == nums[begin+1]:
+#                 begin += 1 
+#                 continue
+#             if nums[end] == nums[end-1]:
+#                 end -= 1
+#                 continue
+#   different method. If we see A[l]==A[m] or A[m]==A[r], we can increase the value of l, or decrease value of r until e get a different value of A[l] or A[r]
+
+#category main scenarios , don't too much try to merge the upper M and normal one by looking at the conditions
 # check edge case [3 1] 1 test cases like A[m]
 # = A[begin] since we use this as decision 
  # 2. if nums[m] >= nums[begin], target >= nums[begin]
@@ -6,8 +16,6 @@
 #  or <=   in side loop ,nums[m] verify it , and no infinite due to m+1, m-1
 
 # ii DON'T consider nums[begin] == nums[begin]+1,since the key is equal to m or not, if not, still follow the cut, m-1, or m+1; and ---^------, or ------------, only this cases extra; if confused , then looking another perspective
-
- #   different method. If we see A[l]==A[m] or A[m]==A[r], we can increase the value of l, or decrease value of r until we get a different value of A[l] or A[r]
 
 class Solution(object):
     def searchI(self, nums, target):

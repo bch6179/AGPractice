@@ -13,7 +13,6 @@
         self.v = {}
         for node in nodes:
             self.v[node.label] = False
-
         ret = []
         for node in nodes:
             if not self.v[node.label]:

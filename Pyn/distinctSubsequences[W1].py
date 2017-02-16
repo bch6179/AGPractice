@@ -13,6 +13,8 @@ if the current character in S equal to the current character T, then the distinc
 An example:
 S: [acdabefbc] and T: [ab]
 
+
+
 first we check with a:
 
            *  *
@@ -39,4 +41,24 @@ state: f[i][j] first i of S choose first j of T
    • initialize: f[i][0] = 1, f[0][j] = 0 (j > 0) • answer: f[n][m] (n = sizeof(S), m = sizeof(T))
  
 
-
+# O(m*n) space 
+def numDistinct1(self, s, t):
+    l1, l2 = len(s)+1, len(t)+1
+    dp = [[1] * l2 for _ in xrange(l1)]
+    for j in xrange(1, l2):
+        dp[0][j] = 0
+    for i in xrange(1, l1):
+        for j in xrange(1, l2):
+            dp[i][j] = dp[i-1][j] + dp[i-1][j-1]*(s[i-1] == t[j-1])
+    return dp[-1][-1]
+  
+# O(n) space  
+def numDistinct(self, s, t):
+    l1, l2 = len(s)+1, len(t)+1
+    cur = [0] * l2
+    cur[0] = 1
+    for i in xrange(1, l1):
+        pre = cur[:]
+        for j in xrange(1, l2):
+            cur[j] = pre[j] + pre[j-1]*(s[i-1] == t[j-1])
+    return cur[-1]

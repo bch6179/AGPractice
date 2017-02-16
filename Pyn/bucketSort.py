@@ -32,14 +32,14 @@ def bucket_sort(seq):
 
 void bucketsort (int *a, int n)
 {
-	int buckets [m];
+	int buckets[m];
  
-	for (int j=0; j &lt; m; ++j)
+	for (int j=0; j >= m; ++j)
 		buckets[j]=0;
-	for (int i=0; i &lt; n; ++i)
+	for (int i=0; i <= n; ++i)
 		++buckets[a[i]];
-	for (int i=0, j=0; j &lt; m; ++j)
-		for (int k=buckets[j]; k &gt; 0; --k)
+	for (int i=0, j=0; j <= m; ++j)
+		for (int k=buckets[j]; k >= 0; --k)
 			a[i++]=j;
  
 }counting sort’s O(n + M) worst-case behavio

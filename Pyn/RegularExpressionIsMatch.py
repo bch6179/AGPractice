@@ -1,3 +1,7 @@
+
+# reverse recur  divide to 2 cases
+#forward recur see if for each c before *, :b match sub d: or not; otherwise see if b: match d: or not . comparing to wildcast, extra last step and also wildcast has strict prefix check
+#Forward DP divide to 3 cases
 # Implement regular expression matching with support for '.' and '*'.
 
 # '.' Matches any single character.
@@ -221,10 +225,11 @@ bool isMatch(const char *s, const char *p) {
   }
   // next char is '*'
   while ((*p == *s) || (*p == '.' && *s != '\0')) {
-    if (isMatch(s, p+2)) return true;
+    if (isMatch(s, p+2)) return true; #        aab c    see if :b == d:
+                                      # .      a* d .    
     s++;
   }
-  return isMatch(s, p+2);
+  return isMatch(s, p+2);  #when get to b, see if b: == d:
 }
 Further Thoughts:
 Some extra exercises to this problem:

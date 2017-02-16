@@ -1,4 +1,4 @@
-# how to addd new concanated with the remaining before ]
+# how to addd ew concanated with the remaining before ]
 
 public class Solution {
     public String decodeString(String s) {
@@ -65,7 +65,7 @@ class Solution(object):
                 curString = ''
                 curNum = 0
             elif c == ']':
-                num = stack.pop()
+                ````````````````````````````````````````````````````` = stack.pop()
                 prevString = stack.pop()
                 curString = prevString + num*curString
             elif c.isdigit():

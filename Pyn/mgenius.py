@@ -130,14 +130,20 @@ def searchTagTS(f, tagStr):
     return False
 import fileinput,re  
 import sys
-def  addJsonTag(file_name,pattern,value=""):  
-    value ='['+value+'Star]'
-    fh=fileinput.input(file_name,inplace=True)  
-    for line in fh:  
-        replacement='{"tags":[' +  '{"title":'+value+',"type":"sidecar","style":"color: #ffffff !important; background-color: #4986e7 !important;"},'
-        line=re.sub(pattern,replacement,line)  
-        sys.stdout.write(line)  
-    fh.close()  
+def addTagJson(f, tagStr):
+    mdname = '/Users/zhitaoq/Documents/AGPractice/Pyn/.ts/'+ f +'.json'
+
+    toAdd = {"title":tagStr,"type":"sidecar","style":"color: #ffffff !important; background-color: #4986e7 !important;"}
+    try:
+        with open(mdname, 'r') as f: 
+            for line in f.readlines():             
+                js = json.loads(line[3:])
+        with open(mdname,  'w' ) as f:
+            js['tags'].append(toAdd)
+            json.dump(js, f)         
+    except:
+        return  
+    return  
 
 pattern = r'\s{"tags":[\s'
 threehour_ago = datetime.now() - timedelta(hours=3)
@@ -237,7 +243,8 @@ for i, sublist in enumerate([listOfD1, listOfW1, listOfM1, listOf3M]):
                 tagDate(f, map[i])
                 response = raw_input("Enter priority NOW ?") 
                 if response.upper() != 'N':   
-                    tagDate(f, response) 
+                    tagDate(f, response+'Star') 
+                    addTagJson(f,response+'Star')
             elif response.upper() == "S":
                 break
 

@@ -1,4 +1,19 @@
+
+mplement a basic calculator to evaluate a simple expression string.
+
+The expression string contains only non-negative integers, +, -, *, / operators and empty spaces . The integer division should truncate toward zero.
+
+You may assume that the given expression is always valid.
+
+Some examples:
+"3+2*2" = 7
+" 3/2 " = 1
+" 3+5 / 2 " = 5
+
+
 # since + * different order, prepare and conquer, get done * / first, and then later for * 
+
+
 # here the trick is to read previous op when seeing a new op
 class Solution(object):
     def calculate(self, s):

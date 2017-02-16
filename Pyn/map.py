@@ -61,6 +61,19 @@ def getTagJson(f):
     except:
         return ''
     return ','.join(res)
+def addTagJson(f, tagStr):
+    mdname = '/Users/zhitaoq/Documents/AGPractice/Pyn/.ts/'+ f + '.json'
+     
+    toAdd = {"title":tagStr,"type":"sidecar","style":"color: #ffffff !important; background-color: #4986e7 !important;"}
+    try:
+        with open(mdname, mode='r', encoding='utf-8') as feedsjson:
+            feeds = json.load(feedsjson)
+        with open(mdname, mode='w', encoding='utf-8') as feedsjson:
+            feeds['tags'].append(toAdd)
+            json.dump(feeds, feedsjson)         
+    except:
+        return  
+    return  
 def searchTag(f, tagStr):
     t = os.path.splitext(f)
     mdname = t[0].split("[")[0]+'.tag'
